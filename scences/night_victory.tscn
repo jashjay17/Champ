@@ -18,7 +18,7 @@ texture = ExtResource("1_amrnd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1801380231]
 stream = ExtResource("2_urm4k")
-volume_db = -2.701
+volume_db = -13.531
 autoplay = true
 
 [node name="Label4" type="Label" parent="." unique_id=242179375]

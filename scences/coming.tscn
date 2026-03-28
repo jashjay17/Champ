@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://cjnkkva003387" path="res://main.tres" id="2_qyu14"]
 [ext_resource type="Texture2D" uid="uid://d0626ekl68y4e" path="res://misc/space.png" id="4_hgenk"]
 [ext_resource type="Texture2D" uid="uid://diyu12qijeybb" path="res://misc/stopwatch.png" id="5_2f0ab"]
+[ext_resource type="AudioStream" uid="uid://cvfcmbljdg6r5" path="res://music/Click.wav" id="6_2f0ab"]
 
 [node name="COMING" type="Node2D" unique_id=996078286]
 script = ExtResource("1_qyu14")
@@ -74,5 +75,10 @@ texture = ExtResource("4_hgenk")
 [node name="Stopwatch" type="Sprite2D" parent="." unique_id=1980759312]
 position = Vector2(-212, 126)
 texture = ExtResource("5_2f0ab")
+
+[node name="the click" type="AudioStreamPlayer2D" parent="." unique_id=1029045698]
+stream = ExtResource("6_2f0ab")
+volume_db = 14.902
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

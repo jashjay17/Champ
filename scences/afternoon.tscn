@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://diyu12qijeybb" path="res://misc/stopwatch.png" id="2_53j8r"]
 [ext_resource type="PackedScene" uid="uid://qp8qt1m1ead0" path="res://scences/Gameplay.tscn" id="2_e73kg"]
 [ext_resource type="Theme" uid="uid://cjnkkva003387" path="res://main.tres" id="3_xcp7n"]
-[ext_resource type="AudioStream" uid="uid://qo4dljswll0k" path="res://music/straightup wii on my tennis.mp3" id="4_hucab"]
 [ext_resource type="Texture2D" uid="uid://dxqfp1gqdvypv" path="res://sprites/scenery.png" id="6_hucab"]
 [ext_resource type="Texture2D" uid="uid://burqjpp4n5ltg" path="res://misc/scenery.png" id="7_cwf3w"]
+[ext_resource type="AudioStream" uid="uid://bebfdww1kps4h" path="res://music/straightup wii on my tennis_2.5.mp3" id="8_53j8r"]
 [ext_resource type="AudioStream" uid="uid://cvfcmbljdg6r5" path="res://music/Click.wav" id="8_cwf3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53j8r"]
@@ -167,15 +167,14 @@ position = Vector2(388, 274)
 zoom = Vector2(1.65, 1.65)
 
 [node name="music" type="AudioStreamPlayer2D" parent="." unique_id=2139369002]
-stream = ExtResource("4_hucab")
+stream = ExtResource("8_53j8r")
 volume_db = 5.402
-pitch_scale = 0.75
 autoplay = true
 max_distance = 4096.0
 
 [node name="the click" type="AudioStreamPlayer2D" parent="." unique_id=412836480]
 stream = ExtResource("8_cwf3w")
-volume_db = 14.902
+volume_db = 6.798
 autoplay = true
 
 [connection signal="timeout" from="Level timer" to="." method="_on_level_timer_timeout"]

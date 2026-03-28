@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dq3hdgnl054jp"
+path="res://.godot/imported/straightup wii on my tennis_3.mp3-090b01c335d6d28ee578fe1c75b8d8da.mp3str"
+
+[deps]
+
+source_file="res://music/straightup wii on my tennis_3.mp3"
+dest_files=["res://.godot/imported/straightup wii on my tennis_3.mp3-090b01c335d6d28ee578fe1c75b8d8da.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

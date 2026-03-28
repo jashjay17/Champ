@@ -84,7 +84,7 @@ offset_top = 446.0
 offset_right = 916.0
 offset_bottom = 469.0
 theme = ExtResource("2_5rel7")
-text = "VERSION 1.0"
+text = "VERSION 1.1"
 
 [connection signal="pressed" from="credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="button manager/Start" to="." method="_on_start_pressed"]
