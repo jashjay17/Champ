@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d1mwmw1vooi0l"]
+
+[ext_resource type="Script" uid="uid://dqwcdudhq1lpu" path="res://scripts/level_select.gd" id="1_hbvnp"]
+[ext_resource type="Theme" uid="uid://cjnkkva003387" path="res://main.tres" id="2_ioiii"]
+[ext_resource type="Texture2D" uid="uid://b7l350ymqiwd7" path="res://misc/selection.png" id="2_q2evg"]
+[ext_resource type="AudioStream" uid="uid://cvfcmbljdg6r5" path="res://music/Click.wav" id="4_lats2"]
+
+[node name="level select" type="Node2D" unique_id=489252678]
+script = ExtResource("1_hbvnp")
+
+[node name="Selection" type="Sprite2D" parent="." unique_id=1581353948]
+position = Vector2(411, 159)
+texture = ExtResource("2_q2evg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=61987714]
+position = Vector2(411, 158)
+zoom = Vector2(1.671, 1.671)
+
+[node name="button managerl" type="Control" parent="." unique_id=487602843]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Morning" type="Button" parent="button managerl" unique_id=1983016779]
+layout_mode = 0
+offset_left = 49.0
+offset_top = -36.0
+offset_right = 270.0
+offset_bottom = 353.0
+theme = ExtResource("2_ioiii")
+text = "Morning"
+
+[node name="Afternoon" type="Button" parent="button managerl" unique_id=423408236]
+layout_mode = 0
+offset_left = 293.0
+offset_top = -37.0
+offset_right = 527.0
+offset_bottom = 353.0
+theme = ExtResource("2_ioiii")
+text = "Afternoon"
+
+[node name="Evening" type="Button" parent="button managerl" unique_id=236745075]
+layout_mode = 0
+offset_left = 548.0
+offset_top = -38.0
+offset_right = 776.0
+offset_bottom = 354.0
+theme = ExtResource("2_ioiii")
+text = "Evening"
+
+[node name="the click" type="AudioStreamPlayer2D" parent="." unique_id=1403522952]
+stream = ExtResource("4_lats2")
+volume_db = 14.902
+autoplay = true
+
+[node name="5 letter words" type="Label" parent="." unique_id=1251132414]
+offset_left = 101.0
+offset_top = 248.0
+offset_right = 215.0
+offset_bottom = 283.0
+theme = ExtResource("2_ioiii")
+text = "5 letter wods
+5 seconds"
+
+[node name="6 letter words" type="Label" parent="." unique_id=1297247690]
+offset_left = 351.0
+offset_top = 251.0
+offset_right = 491.0
+offset_bottom = 300.0
+theme = ExtResource("2_ioiii")
+text = "6 letter words.
+4 seconds."
+
+[node name="Label" type="Label" parent="." unique_id=2024849203]
+offset_left = 587.0
+offset_top = 252.0
+offset_right = 743.0
+offset_bottom = 301.0
+theme = ExtResource("2_ioiii")
+text = "A plephora of word
+3 seconds."
+
+[connection signal="pressed" from="button managerl/Morning" to="." method="_on_morning_pressed"]
+[connection signal="pressed" from="button managerl/Afternoon" to="." method="_on_afternoon_pressed"]
+[connection signal="pressed" from="button managerl/Evening" to="." method="_on_evening_pressed"]

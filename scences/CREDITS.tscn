@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ct1db74l17ktr"]
+
+[ext_resource type="Texture2D" uid="uid://bu217cs1shhwj" path="res://sprites/WALL.png" id="1_7mvin"]
+[ext_resource type="Script" uid="uid://kdqh436y6g5n" path="res://scripts/credits.gd" id="1_j0820"]
+[ext_resource type="Theme" uid="uid://cjnkkva003387" path="res://main.tres" id="2_j0820"]
+
+[node name="Control" type="Control" unique_id=1638676138]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = 5.0
+offset_right = -46.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0820")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1561984403]
+position = Vector2(526, 210)
+zoom = Vector2(1.67, 1.67)
+
+[node name="Wall" type="Sprite2D" parent="." unique_id=763280509]
+position = Vector2(526, 210)
+texture = ExtResource("1_7mvin")
+
+[node name="ANGELO" type="Label" parent="." unique_id=520220520]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 257.0
+offset_right = 625.0
+offset_bottom = 280.0
+theme = ExtResource("2_j0820")
+text = "MUSIC: ANGELO LUMACTOD"
+
+[node name="CREDIT" type="Label" parent="." unique_id=2134961717]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 134.0
+offset_right = 646.0
+offset_bottom = 194.0
+theme = ExtResource("2_j0820")
+theme_override_font_sizes/font_size = 60
+text = "CREDITS"
+
+[node name="CREDITS TIMER" type="Timer" parent="." unique_id=198360735]
+wait_time = 5.111000000000001
+
+[connection signal="timeout" from="CREDITS TIMER" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CREDITS TIMER" to="." method="_on_credits_timer_timeout"]

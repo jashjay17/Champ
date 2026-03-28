@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c31w1lsywrya0"]
+
+[ext_resource type="Texture2D" uid="uid://bu217cs1shhwj" path="res://sprites/WALL.png" id="1_m8137"]
+[ext_resource type="Script" uid="uid://d27cuej07wx3a" path="res://scripts/coming.gd" id="1_qyu14"]
+[ext_resource type="Theme" uid="uid://cjnkkva003387" path="res://main.tres" id="2_qyu14"]
+[ext_resource type="Texture2D" uid="uid://d0626ekl68y4e" path="res://misc/space.png" id="4_hgenk"]
+[ext_resource type="Texture2D" uid="uid://diyu12qijeybb" path="res://misc/stopwatch.png" id="5_2f0ab"]
+
+[node name="COMING" type="Node2D" unique_id=996078286]
+script = ExtResource("1_qyu14")
+
+[node name="Wall" type="Sprite2D" parent="." unique_id=239533512]
+position = Vector2(0, 1)
+texture = ExtResource("1_m8137")
+
+[node name="Label2" type="Label" parent="." unique_id=1357934079]
+offset_left = 195.0
+offset_top = 191.0
+offset_right = 352.0
+offset_bottom = 214.0
+theme = ExtResource("2_qyu14")
+text = "Press ENTER to start"
+
+[node name="Label" type="Label" parent="." unique_id=159825372]
+offset_left = 76.0
+offset_top = 35.0
+offset_right = 296.0
+offset_bottom = 84.0
+theme = ExtResource("2_qyu14")
+text = "4. mess up 5 times and its 
+game over"
+
+[node name="3" type="Label" parent="." unique_id=1956555723]
+offset_left = -303.0
+offset_top = 29.0
+offset_right = -263.0
+offset_bottom = 52.0
+theme = ExtResource("2_qyu14")
+text = "3. You dont have long to 
+submit your word 
+so act fast"
+
+[node name="2" type="Label" parent="." unique_id=296396538]
+offset_left = 50.0
+offset_top = -148.0
+offset_right = 256.0
+offset_bottom = -53.0
+theme = ExtResource("2_qyu14")
+text = "2. press the enter key to
+ sumbit your word"
+
+[node name="1_" type="Label" parent="." unique_id=977446186]
+offset_left = -418.0
+offset_top = -145.0
+offset_right = 2.0
+offset_bottom = -91.0
+theme = ExtResource("2_qyu14")
+text = "1.select the text box 
+and type in the word
+thats next to it"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1700336799]
+zoom = Vector2(1.67, 1.67)
+
+[node name="Timer" type="Timer" parent="." unique_id=905141972]
+wait_time = 39.177
+
+[node name="Space" type="Sprite2D" parent="." unique_id=1213084519]
+position = Vector2(142, -75)
+texture = ExtResource("4_hgenk")
+
+[node name="Stopwatch" type="Sprite2D" parent="." unique_id=1980759312]
+position = Vector2(-212, 126)
+texture = ExtResource("5_2f0ab")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

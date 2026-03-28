@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://b2xvckdr6xs0"]
+
+[ext_resource type="Script" uid="uid://btun14yqnowoy" path="res://scripts/gameboard.gd" id="1_kv177"]
+[ext_resource type="Theme" uid="uid://cjnkkva003387" path="res://main.tres" id="2_5ejqc"]
+[ext_resource type="Texture2D" uid="uid://c0h2hapmcm2af" path="res://sprites/misses.png" id="2_p8kxa"]
+[ext_resource type="Texture2D" uid="uid://b5ks4g4yc70lp" path="res://sprites/boom.png" id="4_f4vn1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukx0g"]
+atlas = ExtResource("4_f4vn1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1423g"]
+atlas = ExtResource("4_f4vn1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovi1i"]
+atlas = ExtResource("4_f4vn1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcrcf"]
+atlas = ExtResource("4_f4vn1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6tqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukx0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1423g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovi1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcrcf")
+}],
+"loop": false,
+"name": &"boom",
+"speed": 9.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"defualt",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ejqc"]
+atlas = ExtResource("2_p8kxa")
+region = Rect2(960, 0, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4vn1"]
+atlas = ExtResource("2_p8kxa")
+region = Rect2(720, 0, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaj24"]
+atlas = ExtResource("2_p8kxa")
+region = Rect2(480, 0, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wqxf"]
+atlas = ExtResource("2_p8kxa")
+region = Rect2(240, 0, 240, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cekml"]
+atlas = ExtResource("2_p8kxa")
+region = Rect2(0, 0, 240, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukx0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ejqc")
+}],
+"loop": true,
+"name": &"1 left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4vn1")
+}],
+"loop": true,
+"name": &"2 left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaj24")
+}],
+"loop": true,
+"name": &"3 left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wqxf")
+}],
+"loop": true,
+"name": &"4 left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cekml")
+}],
+"loop": false,
+"name": &"5 left",
+"speed": 5.0
+}]
+
+[node name="Gameboard" type="Node2D" unique_id=1676475173]
+script = ExtResource("1_kv177")
+
+[node name="boom" type="AnimatedSprite2D" parent="." unique_id=664492949]
+position = Vector2(303, -27)
+sprite_frames = SubResource("SpriteFrames_y6tqf")
+animation = &"defualt"
+autoplay = "defualt"
+
+[node name="count down" type="Timer" parent="." unique_id=632613277]
+wait_time = 5.0
+
+[node name="User word" type="LineEdit" parent="." unique_id=140378430]
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 143.0
+offset_bottom = 61.0
+theme = ExtResource("2_5ejqc")
+placeholder_text = "word here..."
+keep_editing_on_text_submit = true
+expand_to_text_length = true
+
+[node name="Current word" type="Label" parent="." unique_id=228928266]
+offset_left = 157.0
+offset_top = 14.0
+offset_right = 288.0
+offset_bottom = 85.0
+theme = ExtResource("2_5ejqc")
+text = "answer"
+vertical_alignment = 1
+justification_flags = 35
+clip_text = true
+
+[node name="misses" type="AnimatedSprite2D" parent="." unique_id=916017468]
+position = Vector2(120, -25)
+sprite_frames = SubResource("SpriteFrames_ukx0g")
+animation = &"1 left"
+
+[node name="vis_score" type="Label" parent="." unique_id=1307771001]
+offset_left = 282.0
+offset_top = -36.0
+offset_right = 322.0
+offset_bottom = -4.0
+theme = ExtResource("2_5ejqc")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="count down" to="." method="_on_count_down_timeout"]
+[connection signal="text_submitted" from="User word" to="." method="_on_user_word_text_submitted"]
